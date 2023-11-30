@@ -34,7 +34,38 @@ export class Service{
     }
 
     async updatePost(slug, {title, content, featuredImage, status, userId}){
-        
+        try {
+            return await this.databases.updateDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                slug,
+                {
+                    title,
+                    content,
+                    featuredImage,
+                    status,
+                }
+            );
+        } catch (error) {
+            console.log("Appwrite Service :: updatePost :: error", error);
+        }
+    }
+
+    async deletePost(slug){
+        try {
+            await this.databases.deleteDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                slug,
+                {
+
+                }
+            );
+            return true;
+        } catch (error) {
+            console.log("Appwrite Service :: deletePost :: error", error);
+            return false
+        }
     }
 
 }
