@@ -14,6 +14,7 @@ export default function RTE({name, control, label, defaultValue=""}) {
             <Editor
               initialValue={defaultValue}
               init={{
+                initialValue: defaultValue,
                 height: 500,
                 menubar: true,
                 plugins: [
@@ -27,7 +28,7 @@ export default function RTE({name, control, label, defaultValue=""}) {
                     "preview",
                     "anchor",
                     "searchreplace",
-                    "viualblocks",
+                    "visualblocks",
                     "code",
                     "fullscreen",
                     "insertdatetime",
@@ -35,7 +36,8 @@ export default function RTE({name, control, label, defaultValue=""}) {
                     "table",
                     "code",
                     "help",
-                    "wordcount"
+                    "wordcount",
+                    "anchor"
                 ],
                 toolbar: 
                 "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help",

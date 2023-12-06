@@ -2,7 +2,7 @@ import conf from "../conf/conf";
 import { Client, ID, Databases, Query, Storage } from "appwrite";
 
 export class Service{
-    client = new Client()
+    client = new Client();
     databases;
     bucket;
 
@@ -33,7 +33,7 @@ export class Service{
         }
     }
 
-    async updatePost(slug, {title, content, featuredImage, status, userId}){
+    async updatePost(slug, {title, content, featuredImage, status}){
         try {
             return await this.databases.updateDocument(
                 conf.appwriteDatabaseId,
@@ -45,7 +45,7 @@ export class Service{
                     featuredImage,
                     status,
                 }
-            );
+            )
         } catch (error) {
             console.log("Appwrite Service :: updatePost :: error", error);
         }
@@ -57,7 +57,7 @@ export class Service{
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 slug,
-            );
+            )
             return true;
         } catch (error) {
             console.log("Appwrite Service :: deletePost :: error", error);
@@ -71,8 +71,7 @@ export class Service{
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 slug,
-            );
-            return true;
+            )
         } catch (error) {
             console.log("Appwrite Service :: getPost :: error", error);
             return false
@@ -84,8 +83,8 @@ export class Service{
             return await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                queries
-            );
+                queries,
+            )
         } catch (error) {
             console.log("Appwrite Service :: getPosts :: error", error);
             return false
@@ -100,7 +99,7 @@ export class Service{
                 conf.appwriteBucketId,
                 ID.unique(),
                 file
-            );
+            )
         } catch (error) {
             console.log("Appwrite Service :: uploadFile :: error", error);
             return false
@@ -112,7 +111,7 @@ export class Service{
             await this.bucket.deleteFile(
                 conf.appwriteBucketId,
                 fileId
-            );
+            )
             return true
         } catch (error) {
             console.log("Appwrite Service :: deleteFile :: error", error);

@@ -11,6 +11,7 @@ import Signup from './pages/Signup.jsx'
 import EditPost from "./pages/EditPost.jsx";
 import Post from "./pages/Post.jsx";
 import AllPosts from "./pages/AllPosts.jsx";
+import Home from './pages/Home.jsx'
 
 const router = createBrowserRouter([
    {
